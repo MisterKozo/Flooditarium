@@ -104,7 +104,8 @@ public class PlayView extends View {
                         }
                     }
 
-                    this.board.HitWith(0, 0, i, this.board.GetBoard()[0][0]);
+                   // this.board.HitWith(0, 0, i, this.board.GetBoard()[0][0], null);
+                    this.board.Flood(this.board.GetBoard()[0][0], i, null, 0,0);
                     i = colors;
                     invalidate();
                 }

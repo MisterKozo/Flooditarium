@@ -19,10 +19,10 @@
     <string name="yes">Da</string>
     <string name="no">Nyet</string>
 
-    <string name="zikfa_gdola_hs_2018">Zikfa Gdola HS, 2018</string>
+    <string name="robidium_hs_2018">Robidium HS, 2018</string>
     <string name="birthday_september_11_2001">Birthday: 11.09.2001</string>
     <string name="id_328472264">ID: 328472264</string>
-    <string name="name_robidium_gadolinium">Name: Robidium Gadolinium</string>
+    <string name="name_gadolinium">Name: Gadolinium</string>
     <string name="dismiss">Dismiss</string>
 
     <string name="change_name">Change Name</string>
@@ -32,4 +32,13 @@
     <string name="name_nickname">Name/Nickname</string>
     <string name="save">Save</string>
     <string name="tell">Tell me your name:</string>
+
+    <string name="left">Backward</string>
+    <string name="right">Forward</string>
+    <string name="visual">Visual Instructions</string>
+
+    <string name="inst0">The controls at the bottom let you flood the board from the first row and column with one color. Your goal is to flood the entire board.</string>
+    <string name="inst1">Wait for the machine to calibrate.</string>
+    <string name="inst2">Select your desired target on the map.</string>
+    <string name="inst3">INVOKE CHAOS!</string>
 </resources>

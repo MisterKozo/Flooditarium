@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,6 +42,12 @@ public class MainActivity extends AppCompatActivity {
     public void main_settings(View v) {
         Intent main_settings = new Intent(this, SettingsActivity.class);
         startActivity(main_settings);
+    }
+
+    public void main_help(View v) {
+        Intent main_help = new Intent(this, HelpActivity.class);
+        startActivity(main_help);
+        //Toast.makeText(this, "TODO", Toast.LENGTH_LONG).show();
     }
 
     public void main_leave(View v) {

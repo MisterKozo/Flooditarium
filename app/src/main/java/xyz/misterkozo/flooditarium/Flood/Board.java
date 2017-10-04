@@ -3,6 +3,8 @@ package xyz.misterkozo.flooditarium.Flood;
 import android.content.Context;
 import android.graphics.Canvas;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Random;
 import xyz.misterkozo.flooditarium.Utilities.*;
 
@@ -98,21 +100,60 @@ public class Board {
         }
     }
 
-    public void HitWith(int y, int x, int color, int original) {
+    /*public void HitWith(int y, int x, int color, int original, boolean[][] visited) {
+        if (visited == null) {
+            visited = new boolean[this.size][this.size];
+            for (int cY = 0; cY < this.size; cY++) {
+                for (int cX = 0; cX < this.size; cX++) {
+                    visited[cY][cX] = false;
+                }
+            }
+        }
+
         if (original < 0) {
             original = this.board[0][0];
         }
+
+        if (visited[y][x]) return;
+        visited[y][x] = true;
 
         int change = this.board[0][0];
         if (y != this.size && x != this.size) {
             if (this.board[y][x] == original) {
                 this.board[y][x] = color;
                 this.cells[y][x].SetColor(color);
-                HitWith(y+1, x, color, original);
-                HitWith(y, x+1, color, original);
+                HitWith(y+1, x, color, original, visited);
+                HitWith(y, x+1, color, original, visited);
+                HitWith(y-1, x, color, original, visited);
+                HitWith(y, x-1, color, original, visited);
                 //HitWith(y, x-1, color, original);
             }
         }
+    }*/
+
+    public void Flood(int original, int to, boolean[][] visited, int r, int c) {
+        if (visited == null) {
+            visited = new boolean[this.size][this.size];
+            for (int cY = 0; cY < this.size; cY++) {
+                for (int cX = 0; cX < this.size; cX++) {
+                    visited[cY][cX] = false;
+                }
+            }
+        }
+
+        if(r < 0 || r >= this.board.length || c < 0 || c >= this.board[0].length) return;
+
+        if(visited[r][c]) return;
+        visited[r][c] = true;
+
+        if (this.board[r][c] != original) return;
+
+        if(this.board[r][c] == original) this.board[r][c] = to;
+
+        Flood(original, to, visited,r+1,c);
+        Flood(original, to, visited,r-1,c);
+        Flood(original, to, visited,r,c+1);
+        Flood(original, to, visited,r,c-1);
     }
 
     public boolean IsSolved() {

@@ -40,6 +40,9 @@ public class ScoresActivity extends AppCompatActivity {
                 i = db.getAllScores().size();
         }
 
+        if (scores == "")
+            scores = "No scores. Data has either never existed or has been erased.";
+
         tv_offlines.setText(scores);
     }
 
