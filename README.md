@@ -1,2 +1,3 @@
 # Flooditarium
-A half working Flood game
+Final version
+This is the bloat-less version
