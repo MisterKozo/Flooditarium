@@ -41,4 +41,6 @@
     <string name="inst1">Wait for the machine to calibrate.</string>
     <string name="inst2">Select your desired target on the map.</string>
     <string name="inst3">INVOKE CHAOS!</string>
+
+    <string name="deleteText">Are you sure you want to reset all scores and preferences? THIS CANNOT BE UNDONE!</string>
 </resources>

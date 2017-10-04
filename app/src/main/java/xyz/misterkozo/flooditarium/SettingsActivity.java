@@ -2,8 +2,10 @@ package xyz.misterkozo.flooditarium;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -63,8 +65,27 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void settings_reset(View v) {
-        DatabaseHandler db = new DatabaseHandler(this);
-        db.deleteAllScores();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(getString(R.string.leaveTitle))
+                .setMessage(getString(R.string.deleteText))
+                .setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        DatabaseHandler db = new DatabaseHandler(getApplicationContext());
+                        db.deleteAllScores();
+                        SharedPreferences.Editor editor = settings.edit();
+                        editor.putString("name", "Player");
+                        editor.putBoolean("sound", true);
+                        editor.commit();
+                        sw_volume.setChecked(true);
+                    }
+                })
+                .setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // dismiss
+                    }
+                })
+                .setIcon(R.drawable.icon)
+                .show();
     }
 
     public void settings_back(View v) {
